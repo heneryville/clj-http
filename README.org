@@ -786,11 +786,10 @@ provided with a _cookie store_.
 (The =clj-http.cookies/cookie-store= function returns a new empty instance of a
 default implementation of =org.apache.http.client.CookieStore=.)
 
-This will allow cookies to only be _written_ to the cookie store. Cookies from
-the cookie-store will not automatically be sent with future requests.
+This will read and write cookies to the bound cookie-store and they will be
+automatically sent with each request.
 
-If you would like cookies from the cookie-store to automatically be sent with
-each request, specify the cookie-store with the =:cookie-store= option:
+If you prefer to explicitly pass a cookie-store, use the =:cookie-store= option:
 
 #+BEGIN_SRC clojure
 (let [my-cs (clj-http.cookies/cookie-store)]
